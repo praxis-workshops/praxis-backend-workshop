@@ -12,6 +12,15 @@ $ npm install
 
 ## Running the app
 
+### Environment variables
+In order to run the app successfully you have to define the next environment variables:
+
+* MONGODB_URL=`mongodb://[username:password@]host1[:port1][/[database][?options]]`
+
+
+
+### Commands
+
 ```bash
 # development
 $ npm run start
