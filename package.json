@@ -21,6 +21,8 @@
     "@nestjs/core": "^5.0.0",
     "@nestjs/mongoose": "5.2.1",
     "@nestjs/swagger": "2.4.6",
+    "class-transformer": "0.1.9",
+    "class-validator": "0.9.1",
     "fastify-formbody": "^2.0.0",
     "mongoose": "5.2.10",
     "reflect-metadata": "^0.1.12",
