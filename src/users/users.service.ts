@@ -6,8 +6,8 @@ import { CreateUserDto } from 'dto/user.dto';
 export class UsersService {
   constructor(@InjectModel('User') private readonly userModel) { }
 
-  async create(user: CreateUserDto): Promise<any> {
-    return new this.userModel(user).saveany
+  async create(user: CreateUserDto): Promise<CreateUserDto> {
+    return await (new this.userModel(user)).save();
   }
 
   async findAll(): Promise<any[]> {

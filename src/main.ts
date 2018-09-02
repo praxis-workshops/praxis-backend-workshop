@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const options = new DocumentBuilder()
-    .setTitle('CRUD API')
+    .setTitle('Challenge API')
     .setDescription('The backend API description')
     .setVersion('1.0')
     .build();
