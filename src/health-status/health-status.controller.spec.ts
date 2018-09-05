@@ -3,15 +3,24 @@ import { HealthStatusController } from './health-status.controller';
 
 describe('HealthStatus Controller', () => {
   let module: TestingModule;
+  let controller: HealthStatusController;
 
   beforeAll(async () => {
     module = await Test.createTestingModule({
       controllers: [HealthStatusController],
     }).compile();
+
+    controller = module.get<HealthStatusController>(HealthStatusController);
   });
 
   it('should be defined', () => {
-    const controller: HealthStatusController = module.get<HealthStatusController>(HealthStatusController);
     expect(controller).toBeDefined();
   });
+
+  it('should response with a good status', () => {
+    const response = controller.healthStatus();
+    expect(response).toEqual({
+      message: "I'm ok",
+    });
+  })
 });
