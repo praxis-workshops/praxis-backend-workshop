@@ -8,6 +8,7 @@ async function bootstrap() {
 
   const options = new DocumentBuilder()
     .setTitle('Challenge API')
+    .setSchemes('http', 'https')
     .setDescription('The backend API description')
     .setVersion('1.0')
     .build();
