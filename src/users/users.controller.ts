@@ -44,7 +44,6 @@ export class UsersController {
   @ApiNotFoundResponse({ description: 'User not found' })
   async findById(@Param('id', new ObjectIdPipe()) id: string): Promise<any> {
     const data = await this.usersService.findById(id);
-    console.log(data);
 
     if (!data) {
       throw new NotFoundException();

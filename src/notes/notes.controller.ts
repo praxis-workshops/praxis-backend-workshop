@@ -9,7 +9,7 @@ import {
 import { NotesService } from './notes.service';
 
 import { ObjectIdPipe } from '../pipes/valid-object-id.pipe';
-import { EmptyObjectPipe } from 'pipes/empty-object.pipe';
+import { EmptyObjectPipe } from '../pipes/empty-object.pipe';
 
 @Controller('notes')
 export class NotesController {
