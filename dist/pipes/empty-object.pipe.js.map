@@ -1,0 +1,1 @@
+{"version":3,"file":"empty-object.pipe.js","sourceRoot":"","sources":["../../src/pipes/empty-object.pipe.ts"],"names":[],"mappings":";;AAAA,mCAA2B;AAG3B,2CAAqD;AAGrD,mCAA4B;AAE5B;IAEE,SAAS,CAAC,KAAU,EAAE,QAA0B;QAC9C,IAAI,UAAC,CAAC,OAAO,CAAC,KAAK,CAAC,EAAE;YACpB,MAAM,IAAI,4BAAmB,CAAC,gBAAM,CAAC,uBAAuB,CAAC,CAAC;SAC/D;QAED,OAAO,KAAK,CAAC;IACf,CAAC;CACF;AATD,0CASC"}
