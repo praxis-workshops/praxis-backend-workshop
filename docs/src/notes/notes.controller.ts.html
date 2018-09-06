@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/users/users.controller.ts</title>
+    <title>Code coverage report for src/notes/notes.controller.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">src/users</a> users.controller.ts
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/notes</a> notes.controller.ts
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">86.54% </span>
+        <span class="strong">86% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>45/52</span>
+        <span class='fraction'>43/50</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">71.25% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>20/21</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">92.68% </span>
+        <span class="strong">92.31% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>38/41</span>
+        <span class='fraction'>36/39</span>
       </div>
     </div>
     <p class="quiet">
@@ -117,10 +117,7 @@
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
 <a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a>
-<a name='L75'></a><a href='#L75'>75</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L72'></a><a href='#L72'>72</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -134,9 +131,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -176,18 +173,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,80 +189,77 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {<span class="branch-1 cbranch-no" title="branch not covered" ></span>
-  Body, Controller, Delete,<span class="branch-1 cbranch-no" title="branch not covered" ></span>
-  Ge<span class="missing-if-branch" title="else path not taken" >E</span>t, Param, Patch,
-  Post, U<span class="cstat-no" title="statement not covered" >sePipes, ValidationPipe,<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span>
-  NotFoundException,
+    Body, Controller, Delete,<span class="branch-1 cbranch-no" title="branch not covered" ></span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>Get, Param, Patch,
+    Post,<span class="cstat-no" title="statement not covered" > UsePipes, ValidationPipe,<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span>
+    NotFoundException
 } from '@nestjs/common';
 <span class="branch-1 cbranch-no" title="branch not covered" ></span>
 impo<span class="missing-if-branch" title="else path not taken" >E</span>rt {
-  ApiCreatedResponse, ApiForbiddenResponse, ApiUseTags,
-  ApiOkResponse, ApiNot<span class="branch-1 cbranch-no" title="branch not covered" >FoundResponse</span>, ApiInternalServerErrorResponse, ApiBadRequestResponse, ApiProduces,
+    ApiCreatedResponse, ApiUseTags,
+    ApiOkResponse, ApiB<span class="branch-1 cbranch-no" title="branch not covered" >adRequestResp</span>onse
 } from '@nestjs/swagger';
 &nbsp;
-import { UsersService } f<span class="branch-1 cbranch-no" title="branch not covered" >rom './users.se</span>rvice';
+import { NotesService } f<span class="branch-1 cbranch-no" title="branch not covered" >rom './notes.se</span>rvice';
 &nbsp;
 import { ObjectIdPipe } from '../pipes/valid-object-id.pipe';
 import { EmptyObj<span class="fstat-no" title="function not covered" >ectPipe }</span> from '..<span class="cstat-no" title="statement not covered" >/pipes<span class="cstat-no" title="statement not covered" >/empty-object.pipe';<span class="cstat-no" title="statement not covered" ></span></span></span>
-import { CreateUserDto, UpdateUserDto } from '../dto/user.dto';
+import { CreateNoteDto, UpdateNoteDto } from '../dto/note.dto';
 &nbsp;
-@ApiUseTags('users')
-@Controller('users')
-export class UsersController {
-  constructor(private readonly usersService: UsersService) { }
+@ApiUseTags('notes')
+@Controller('notes')
+export class NotesController {
 &nbsp;
-  @Delete(':id')
-  @ApiOkResponse({ type: Boolean })
-  @ApiNotFoundResponse({})
-  async remove(@Param('id', new ObjectIdPipe()) id: string) {
-    const result = await this.usersService.remove(id);
+    constructor(private readonly notesService: NotesService) { }
 &nbsp;
-    if (!result)
-      throw new NotFoundException();
+    @ApiOkResponse({ description: "Note with identifier :id deleted" })
+    @ApiBadRequestResponse({ description: "The param is not valid" })
+    @Delete(':id')
+    async remove(@Param('id', new ObjectIdPipe()) id: string) {
+        const result = await this.notesService.remove(id);
 &nbsp;
-    return result;
-  }
+        if (!result)
+            throw new NotFoundException();
 &nbsp;
-  @ApiInternalServerErrorResponse({})
-  @ApiOkResponse({ isArray: true, type: CreateUserDto })
-  @Get()
-  async findAll(): Promise&lt;any&gt; {
-    return await this.usersService.findAll();
-  }
-&nbsp;
-  @Get(':id')
-  @ApiOkResponse({ description: 'User found', type: CreateUserDto })
-  @ApiNotFoundResponse({ description: 'User not found' })
-  async findById(@Param('id', new ObjectIdPipe()) id: string): Promise&lt;any&gt; {
-    const data = await this.usersService.findById(id);
-<span class="missing-if-branch" title="if path not taken" >I</span>
-    if (!data) {<span class="cstat-no" title="statement not covered" ></span>
-      throw new NotFoundException();
+        return result;
     }
 &nbsp;
-    return data;
-  }
+    @ApiOkResponse({ description: "All notes", type: [CreateNoteDto] })
+    @Get()
+    async findAll(): Promise&lt;any&gt; {
+        return this.notesService.findAll();
+    }
 &nbsp;
-  @Patch(':id')
-  @ApiOkResponse({ type: Object })
-  async update(
-    @Param('id', new ObjectIdPipe()) id: string,
-    @Body(new EmptyObjectPipe(), new ValidationPipe({ transform: true })) updateUserDto: UpdateUserDto
-  ): Promise&lt;any&gt; {
-    const response = await this.usersService.update(id, updateUserDto);
-    return response;
-  }
+    @ApiOkResponse({ description: "Note with identifier :id", type: CreateNoteDto })
+    @Get(':id')
+    async findById(@Param('id', new ObjectIdPipe()) id: string): Promise&lt;any&gt; {
+        const data = await this.notesService.findById(id);
 &nbsp;
-  @Post()
-  @ApiCreatedResponse({ description: 'User created successfully', type: CreateUserDto })
-  @ApiForbiddenResponse({ description: 'Forbidden' })
-  @UsePipes(new ValidationPipe({ transform: true }))
-  async create(@Body() createUserDto: CreateUserDto): Promise&lt;CreateUserDto&gt; {
-    const user = await this.usersService.create(createUserDto);
-    return user;
-  }
-}
-&nbsp;</pre></td></tr>
+        if (<span class="missing-if-branch" title="if path not taken" >I</span>!data) {
+            thro<span class="cstat-no" title="statement not covered" >w new NotFoundException();</span>
+        }
+&nbsp;
+        return data;
+    }
+&nbsp;
+    @ApiOkResponse({ description: "Note with identifier :id updated" })
+    @ApiBadRequestResponse({ description: "The request body or id param are not valid" })
+    @Patch(':id')
+    async update(
+        @Param('id', new ObjectIdPipe()) id: string,
+        @Body(new EmptyObjectPipe(), new ValidationPipe({ transform: true })) updateNoteDto: UpdateNoteDto
+    ): Promise&lt;any&gt; {
+        return await this.notesService.update(id, updateNoteDto);
+    }
+&nbsp;
+    @ApiCreatedResponse({ description: 'Note created successfully', type: CreateNoteDto })
+    @ApiBadRequestResponse({ description: "The request body is not valid" })
+    @Post()
+    @UsePipes(new ValidationPipe({ transform: true }))
+    async create(@Body() CreateNoteDto: CreateNoteDto): Promise&lt;CreateNoteDto&gt; {
+        return await this.notesService.create(CreateNoteDto);
+    }
+}</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
