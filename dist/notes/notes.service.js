@@ -28,7 +28,7 @@ let NotesService = class NotesService {
     }
     create(note) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield (new this.noteModel(note)).save();
+            return yield this.noteModel.create(note);
         });
     }
     findAll() {

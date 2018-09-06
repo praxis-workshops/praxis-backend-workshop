@@ -29,7 +29,7 @@ let UsersService = class UsersService {
     }
     create(user) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield (new this.userModel(user)).save();
+            return yield this.userModel.create(user);
         });
     }
     findAll() {

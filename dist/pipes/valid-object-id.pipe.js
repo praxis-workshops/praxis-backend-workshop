@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const class_validator_1 = require("class-validator");
 const common_1 = require("@nestjs/common");
-const errors_1 = require("errors");
+const errors_1 = require("../errors");
 class ObjectIdPipe {
     transform(value, metadata) {
         if (metadata.type === 'param' && metadata.data === 'id') {

@@ -10,14 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const class_validator_1 = require("class-validator");
+const swagger_1 = require("@nestjs/swagger");
 class CreateNoteDto {
 }
 __decorate([
+    swagger_1.ApiModelProperty({ minLength: 10 }),
     class_validator_1.IsString(),
     class_validator_1.MinLength(10),
     __metadata("design:type", String)
 ], CreateNoteDto.prototype, "text", void 0);
 __decorate([
+    swagger_1.ApiModelProperty(),
     class_validator_1.IsString(),
     class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
@@ -26,12 +29,14 @@ exports.CreateNoteDto = CreateNoteDto;
 class UpdateNoteDto {
 }
 __decorate([
+    swagger_1.ApiModelPropertyOptional({ minLength: 10 }),
     class_validator_1.IsOptional(),
     class_validator_1.IsString(),
     class_validator_1.MinLength(10),
     __metadata("design:type", String)
 ], UpdateNoteDto.prototype, "text", void 0);
 __decorate([
+    swagger_1.ApiModelPropertyOptional(),
     class_validator_1.IsString(),
     class_validator_1.IsOptional(),
     __metadata("design:type", String)

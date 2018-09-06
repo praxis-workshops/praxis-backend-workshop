@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const lodash_1 = require("lodash");
 const common_1 = require("@nestjs/common");
-const errors_1 = require("errors");
+const errors_1 = require("../errors");
 class EmptyObjectPipe {
     transform(value, metadata) {
         if (lodash_1._.isEmpty(value)) {

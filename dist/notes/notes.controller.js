@@ -20,18 +20,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const note_dto_1 = require("dto/note.dto");
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
 const notes_service_1 = require("./notes.service");
 const valid_object_id_pipe_1 = require("../pipes/valid-object-id.pipe");
-const empty_object_pipe_1 = require("pipes/empty-object.pipe");
+const empty_object_pipe_1 = require("../pipes/empty-object.pipe");
+const note_dto_1 = require("../dto/note.dto");
 let NotesController = class NotesController {
     constructor(notesService) {
         this.notesService = notesService;
     }
     remove(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.notesService.remove(id);
+            const result = yield this.notesService.remove(id);
+            if (!result)
+                throw new common_1.NotFoundException();
+            return result;
         });
     }
     findAll() {
@@ -41,7 +45,11 @@ let NotesController = class NotesController {
     }
     findById(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.notesService.findById(id);
+            const data = yield this.notesService.findById(id);
+            if (!data) {
+                throw new common_1.NotFoundException();
+            }
+            return data;
         });
     }
     update(id, updateNoteDto) {
@@ -56,6 +64,8 @@ let NotesController = class NotesController {
     }
 };
 __decorate([
+    swagger_1.ApiOkResponse({ description: "Note with identifier :id deleted" }),
+    swagger_1.ApiBadRequestResponse({ description: "The param is not valid" }),
     common_1.Delete(':id'),
     __param(0, common_1.Param('id', new valid_object_id_pipe_1.ObjectIdPipe())),
     __metadata("design:type", Function),
@@ -63,12 +73,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], NotesController.prototype, "remove", null);
 __decorate([
+    swagger_1.ApiOkResponse({ description: "All notes", type: [note_dto_1.CreateNoteDto] }),
     common_1.Get(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], NotesController.prototype, "findAll", null);
 __decorate([
+    swagger_1.ApiOkResponse({ description: "Note with identifier :id", type: note_dto_1.CreateNoteDto }),
     common_1.Get(':id'),
     __param(0, common_1.Param('id', new valid_object_id_pipe_1.ObjectIdPipe())),
     __metadata("design:type", Function),
@@ -76,6 +88,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], NotesController.prototype, "findById", null);
 __decorate([
+    swagger_1.ApiOkResponse({ description: "Note with identifier :id updated" }),
+    swagger_1.ApiBadRequestResponse({ description: "The request body or id param are not valid" }),
     common_1.Patch(':id'),
     __param(0, common_1.Param('id', new valid_object_id_pipe_1.ObjectIdPipe())),
     __param(1, common_1.Body(new empty_object_pipe_1.EmptyObjectPipe(), new common_1.ValidationPipe({ transform: true }))),
@@ -84,6 +98,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], NotesController.prototype, "update", null);
 __decorate([
+    swagger_1.ApiCreatedResponse({ description: 'Note created successfully', type: note_dto_1.CreateNoteDto }),
+    swagger_1.ApiBadRequestResponse({ description: "The request body is not valid" }),
     common_1.Post(),
     common_1.UsePipes(new common_1.ValidationPipe({ transform: true })),
     __param(0, common_1.Body()),
@@ -92,6 +108,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], NotesController.prototype, "create", null);
 NotesController = __decorate([
+    swagger_1.ApiUseTags('notes'),
     common_1.Controller('notes'),
     __metadata("design:paramtypes", [notes_service_1.NotesService])
 ], NotesController);

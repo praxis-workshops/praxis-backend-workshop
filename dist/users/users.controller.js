@@ -46,7 +46,6 @@ let UsersController = class UsersController {
     findById(id) {
         return __awaiter(this, void 0, void 0, function* () {
             const data = yield this.usersService.findById(id);
-            console.log(data);
             if (!data) {
                 throw new common_1.NotFoundException();
             }
@@ -68,7 +67,7 @@ let UsersController = class UsersController {
 };
 __decorate([
     common_1.Delete(':id'),
-    swagger_1.ApiOkResponse({}),
+    swagger_1.ApiOkResponse({ type: Boolean }),
     swagger_1.ApiNotFoundResponse({}),
     __param(0, common_1.Param('id', new valid_object_id_pipe_1.ObjectIdPipe())),
     __metadata("design:type", Function),
@@ -77,6 +76,7 @@ __decorate([
 ], UsersController.prototype, "remove", null);
 __decorate([
     swagger_1.ApiInternalServerErrorResponse({}),
+    swagger_1.ApiOkResponse({ isArray: true, type: user_dto_1.CreateUserDto }),
     common_1.Get(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
@@ -84,7 +84,7 @@ __decorate([
 ], UsersController.prototype, "findAll", null);
 __decorate([
     common_1.Get(':id'),
-    swagger_1.ApiOkResponse({ description: 'User found' }),
+    swagger_1.ApiOkResponse({ description: 'User found', type: user_dto_1.CreateUserDto }),
     swagger_1.ApiNotFoundResponse({ description: 'User not found' }),
     __param(0, common_1.Param('id', new valid_object_id_pipe_1.ObjectIdPipe())),
     __metadata("design:type", Function),
@@ -93,6 +93,7 @@ __decorate([
 ], UsersController.prototype, "findById", null);
 __decorate([
     common_1.Patch(':id'),
+    swagger_1.ApiOkResponse({ type: Object }),
     __param(0, common_1.Param('id', new valid_object_id_pipe_1.ObjectIdPipe())),
     __param(1, common_1.Body(new empty_object_pipe_1.EmptyObjectPipe(), new common_1.ValidationPipe({ transform: true }))),
     __metadata("design:type", Function),
@@ -101,7 +102,7 @@ __decorate([
 ], UsersController.prototype, "update", null);
 __decorate([
     common_1.Post(),
-    swagger_1.ApiCreatedResponse({ description: 'User created successfully', type: 'CreateUserDto' }),
+    swagger_1.ApiCreatedResponse({ description: 'User created successfully', type: user_dto_1.CreateUserDto }),
     swagger_1.ApiForbiddenResponse({ description: 'Forbidden' }),
     common_1.UsePipes(new common_1.ValidationPipe({ transform: true })),
     __param(0, common_1.Body()),
