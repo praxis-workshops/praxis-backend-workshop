@@ -1,8 +1,14 @@
-# praxis-backend-workshop
+# <center>praxis-backend-workshop</center>
+
+##Authors
+
+Sebastian Pino Sánchez - @sebastianpinosanchez
+León Dario Peña Londoño - @leonplondon
 
 ## Description
 
-Backend workshop
+
+Backend for the solution of the challenge, delivered in the **PSL** class by the intructor @Blesfia. The challenge integrates several components such as programming using the nestJS framework and integration with a NoSQL database (MongoDB). Finally the code is tested by Jest (javascript test system)
 
 ## Installation
 
