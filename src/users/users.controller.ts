@@ -7,7 +7,7 @@ import {
 
 import {
   ApiCreatedResponse, ApiForbiddenResponse, ApiUseTags,
-  ApiOkResponse, ApiNotFoundResponse, ApiInternalServerErrorResponse,
+  ApiOkResponse, ApiNotFoundResponse, ApiInternalServerErrorResponse, ApiBadRequestResponse, ApiProduces,
 } from '@nestjs/swagger';
 
 import { UsersService } from './users.service';
@@ -22,7 +22,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) { }
 
   @Delete(':id')
-  @ApiOkResponse({})
+  @ApiOkResponse({ type: Boolean })
   @ApiNotFoundResponse({})
   async remove(@Param('id', new ObjectIdPipe()) id: string) {
     const result = await this.usersService.remove(id);
@@ -34,13 +34,14 @@ export class UsersController {
   }
 
   @ApiInternalServerErrorResponse({})
+  @ApiOkResponse({ isArray: true, type: CreateUserDto })
   @Get()
   async findAll(): Promise<any> {
     return await this.usersService.findAll();
   }
 
   @Get(':id')
-  @ApiOkResponse({ description: 'User found' })
+  @ApiOkResponse({ description: 'User found', type: CreateUserDto })
   @ApiNotFoundResponse({ description: 'User not found' })
   async findById(@Param('id', new ObjectIdPipe()) id: string): Promise<any> {
     const data = await this.usersService.findById(id);
@@ -53,6 +54,7 @@ export class UsersController {
   }
 
   @Patch(':id')
+  @ApiOkResponse({ type: Object })
   async update(
     @Param('id', new ObjectIdPipe()) id: string,
     @Body(new EmptyObjectPipe(), new ValidationPipe({ transform: true })) updateUserDto: UpdateUserDto
@@ -62,7 +64,7 @@ export class UsersController {
   }
 
   @Post()
-  @ApiCreatedResponse({ description: 'User created successfully', type: 'CreateUserDto' })
+  @ApiCreatedResponse({ description: 'User created successfully', type: CreateUserDto })
   @ApiForbiddenResponse({ description: 'Forbidden' })
   @UsePipes(new ValidationPipe({ transform: true }))
   async create(@Body() createUserDto: CreateUserDto): Promise<CreateUserDto> {
