@@ -1,9 +1,9 @@
 # <center>praxis-backend-workshop</center>
 
-##Authors
+## Authors
 
-Sebastian Pino Sánchez - @sebastianpinosanchez
-León Dario Peña Londoño - @leonplondon
+- Sebastian Pino Sánchez - [@sebastianpinosanchez](https://github.com/sebastianpinosanchez)
+- León Dario Peña Londoño - [@leonplondon](https://github.com/leonplondon)
 
 ## Description
 
