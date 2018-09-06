@@ -48,3 +48,5 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+[Test coverage](https://praxis-backend-workshop.github.io/praxis-backend-workshop/)
+
