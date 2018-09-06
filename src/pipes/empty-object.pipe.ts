@@ -4,7 +4,7 @@ import { Validator } from 'class-validator';
 import { BadRequestException } from '@nestjs/common';
 import { PipeTransform, ArgumentMetadata } from "@nestjs/common";
 
-import Errors from 'errors';
+import Errors from '../errors';
 
 export class EmptyObjectPipe implements PipeTransform<any> {
 

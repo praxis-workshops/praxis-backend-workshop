@@ -70,4 +70,26 @@ describe('UsersService', () => {
     expect(response).toHaveProperty('nModified');
     expect(response).toHaveProperty('ok');
   });
+
+  it('should create a new user', async () => {
+    const mockedResponse = {
+      "_id": "5b90951e95e4d6394303c061",
+      "username": "darkgod45",
+      "name": "darkgod",
+      "createdAt": "2018-09-06T02:46:54.979Z",
+      "updatedAt": "2018-09-06T02:46:54.979Z",
+      "__v": 0
+    };
+
+    jest.spyOn(Model, 'create').mockImplementation(() => mockedResponse);
+
+    const response = await service.create({
+      "username": "darkgod45",
+      "name": "darkgod",
+    });
+
+    expect(response).toBeDefined();
+    expect(response).toBeInstanceOf(Object);
+    expect(response).toMatchObject(mockedResponse);
+  });
 });
