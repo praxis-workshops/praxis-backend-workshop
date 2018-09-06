@@ -3,8 +3,7 @@ import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { UsersService } from './users.service';
-import { CreateUserDto, UpdateUserDto } from '../dto/user.dto';
-import { async } from 'rxjs/internal/scheduler/async';
+import { UpdateUserDto } from '../dto/user.dto';
 
 describe('UsersService', () => {
   let service: UsersService;
