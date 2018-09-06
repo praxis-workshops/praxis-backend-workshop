@@ -8,7 +8,7 @@ export class NotesService {
     constructor(@InjectModel('Note') private readonly noteModel) { }
 
     async create(note: CreateNoteDto): Promise<CreateNoteDto> {
-        return await (new this.noteModel(note)).save();
+        return await this.noteModel.create(note);
     }
 
     async findAll(): Promise<any[]> {
