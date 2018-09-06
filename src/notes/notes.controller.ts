@@ -2,6 +2,7 @@ import {
     Body, Controller, Delete,
     Get, Param, Patch,
     Post, UsePipes, ValidationPipe,
+    NotFoundException
 } from '@nestjs/common';
 
 import {
@@ -13,7 +14,7 @@ import { NotesService } from './notes.service';
 
 import { ObjectIdPipe } from '../pipes/valid-object-id.pipe';
 import { EmptyObjectPipe } from '../pipes/empty-object.pipe';
-import { CreateNoteDto, UpdateNoteDto } from 'dto/note.dto';
+import { CreateNoteDto, UpdateNoteDto } from '../dto/note.dto';
 
 @ApiUseTags('notes')
 @Controller('notes')
@@ -25,7 +26,12 @@ export class NotesController {
     @ApiBadRequestResponse({ description: "The param is not valid" })
     @Delete(':id')
     async remove(@Param('id', new ObjectIdPipe()) id: string) {
-        return await this.notesService.remove(id);
+        const result = await this.notesService.remove(id);
+
+        if (!result)
+            throw new NotFoundException();
+
+        return result;
     }
 
     @ApiOkResponse({ description: "All notes", type: [CreateNoteDto] })
@@ -37,7 +43,13 @@ export class NotesController {
     @ApiOkResponse({ description: "Note with identifier :id", type: CreateNoteDto })
     @Get(':id')
     async findById(@Param('id', new ObjectIdPipe()) id: string): Promise<any> {
-        return await this.notesService.findById(id);
+        const data = await this.notesService.findById(id);
+
+        if (!data) {
+            throw new NotFoundException();
+        }
+
+        return data;
     }
 
     @ApiOkResponse({ description: "Note with identifier :id updated" })
