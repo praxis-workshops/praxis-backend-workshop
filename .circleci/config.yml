@@ -15,6 +15,7 @@ jobs:
           name: build-executable
           command: npm run compile
   deploy:
+    machine: true
     branches:
       only:
         - master
