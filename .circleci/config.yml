@@ -16,9 +16,6 @@ jobs:
           command: npm run compile
   deploy:
     machine: true
-    branches:
-      only:
-        - master
     steps:
       - deploy:
           command: |
@@ -32,3 +29,6 @@ workflows:
       - deploy:
           requires:
             - build
+          filters:
+            branches:
+              only: master
