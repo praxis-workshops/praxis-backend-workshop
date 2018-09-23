@@ -22,10 +22,10 @@ jobs:
           name: Configure git user
           command: |
             git config --global user.email "leonplondon@gmail.com" && git config --global user.name "León Peña"
-      - run:
-          name: Make deployment commit
-          command: |
-            git commit -am "A new version has been deployed"
+      # - run:
+      #     name: Make deployment commit
+      #     command: |
+      #       git commit -am "A new version has been deployed"
       - deploy:
           command: |
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master

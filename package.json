@@ -11,6 +11,7 @@
     "start:dev": "nodemon",
     "start:prod": "node dist/main.js",
     "prestart:prod": "rm -rf dist && tsc",
+    "postinstall": "npm run compile",
     "start:hmr": "node dist/server",
     "test": "jest",
     "test:cov": "jest --coverage",
