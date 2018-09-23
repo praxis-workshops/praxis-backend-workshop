@@ -21,6 +21,7 @@ describe('HealthStatus Controller', () => {
     const response = controller.healthStatus();
     expect(response).toEqual({
       message: "I'm ok",
+      runningFromCircleCI: true,
     });
   })
 });
