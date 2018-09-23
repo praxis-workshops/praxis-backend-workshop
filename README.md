@@ -67,12 +67,8 @@ For the implementation of CI and CD, we use CircleCI with the following steps:
 
 ```json
 "scripts": {
-    ...
-
     "compile": "rm -rf dist/ && npx tsc",
     "postinstall": "npm run compile",
-
-    ...
   },
 ```
 
