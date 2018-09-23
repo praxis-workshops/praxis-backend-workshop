@@ -9,6 +9,7 @@ export class HealthStatusController {
   healthStatus(): any {
     return {
       message: "I'm ok",
+      runningFromCircleCI: true,
     };
   }
 }
